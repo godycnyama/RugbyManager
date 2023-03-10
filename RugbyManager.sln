@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32112.339
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RugbyManager.API", "RugbyManager.API\RugbyManager.API.csproj", "{8BEA3F23-0AD1-46FB-B0F5-982CDB794B37}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RugbyManager.Services", "RugbyManager.Services\RugbyManager.Services.csproj", "{999FD139-9B9E-459A-ACCF-BF7115522A0D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RugbyManager.Domain", "RugbyManager.Domain\RugbyManager.Domain.csproj", "{06379FCC-24F4-40C8-8D89-67F5AA5ABD8D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RugbyManager.Perstistence", "RugbyManager.Perstistence\RugbyManager.Perstistence.csproj", "{6F148971-9EBF-4314-989A-89C341C91310}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RugbyManager.Tests", "RugbyManager.Tests\RugbyManager.Tests.csproj", "{FF9D735B-6DFD-4424-817A-D7181508687D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8BEA3F23-0AD1-46FB-B0F5-982CDB794B37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8BEA3F23-0AD1-46FB-B0F5-982CDB794B37}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8BEA3F23-0AD1-46FB-B0F5-982CDB794B37}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8BEA3F23-0AD1-46FB-B0F5-982CDB794B37}.Release|Any CPU.Build.0 = Release|Any CPU
+		{999FD139-9B9E-459A-ACCF-BF7115522A0D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{999FD139-9B9E-459A-ACCF-BF7115522A0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{999FD139-9B9E-459A-ACCF-BF7115522A0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{999FD139-9B9E-459A-ACCF-BF7115522A0D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06379FCC-24F4-40C8-8D89-67F5AA5ABD8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06379FCC-24F4-40C8-8D89-67F5AA5ABD8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06379FCC-24F4-40C8-8D89-67F5AA5ABD8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06379FCC-24F4-40C8-8D89-67F5AA5ABD8D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F148971-9EBF-4314-989A-89C341C91310}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F148971-9EBF-4314-989A-89C341C91310}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F148971-9EBF-4314-989A-89C341C91310}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F148971-9EBF-4314-989A-89C341C91310}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF9D735B-6DFD-4424-817A-D7181508687D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF9D735B-6DFD-4424-817A-D7181508687D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF9D735B-6DFD-4424-817A-D7181508687D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF9D735B-6DFD-4424-817A-D7181508687D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {38281E8C-B844-4999-8387-057581691E52}
+	EndGlobalSection
+EndGlobal
