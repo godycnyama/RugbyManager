@@ -10,13 +10,13 @@ namespace RugbyManager.Persistence
         public DbSet<Player> Players { get; set; }
         public DbSet<Team> Teams { get; set; }
         public DbSet<Stadium> Stadiums { get; set; }
-        public string DbPath { get; } = String.Empty;
+        public string DbPath { get; } 
 
         public RugbyManagerContext()
         {
             var folder = Environment.SpecialFolder.LocalApplicationData;
             var path = Environment.GetFolderPath(folder);
-            DbPath = System.IO.Path.Join(path, "blogging.db");
+            DbPath = System.IO.Path.Join(path, "rugbymanager.db");
         }
 
         // The following configures EF to create a Sqlite database file in the
