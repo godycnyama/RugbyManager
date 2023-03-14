@@ -3,15 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32112.339
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RugbyManager.API", "RugbyManager.API\RugbyManager.API.csproj", "{8BEA3F23-0AD1-46FB-B0F5-982CDB794B37}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RugbyManager.API", "RugbyManager.API\RugbyManager.API.csproj", "{8BEA3F23-0AD1-46FB-B0F5-982CDB794B37}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RugbyManager.Services", "RugbyManager.Services\RugbyManager.Services.csproj", "{999FD139-9B9E-459A-ACCF-BF7115522A0D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RugbyManager.Services", "RugbyManager.Services\RugbyManager.Services.csproj", "{999FD139-9B9E-459A-ACCF-BF7115522A0D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RugbyManager.Domain", "RugbyManager.Domain\RugbyManager.Domain.csproj", "{06379FCC-24F4-40C8-8D89-67F5AA5ABD8D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RugbyManager.Domain", "RugbyManager.Domain\RugbyManager.Domain.csproj", "{06379FCC-24F4-40C8-8D89-67F5AA5ABD8D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RugbyManager.Tests", "RugbyManager.Tests\RugbyManager.Tests.csproj", "{FF9D735B-6DFD-4424-817A-D7181508687D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RugbyManager.Tests", "RugbyManager.Tests\RugbyManager.Tests.csproj", "{FF9D735B-6DFD-4424-817A-D7181508687D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RugbyManager.Persistence", "RugbyManager.Persistence\RugbyManager.Persistence.csproj", "{B6B25ADD-00CF-4F11-BD7A-E5F01483AC0D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RugbyManager.Persistence", "RugbyManager.Persistence\RugbyManager.Persistence.csproj", "{B6B25ADD-00CF-4F11-BD7A-E5F01483AC0D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RugbyManager.Shared", "RugbyManager.Shared\RugbyManager.Shared.csproj", "{196F1835-EFCB-4EB8-A8E5-FD93199F6A0B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{B6B25ADD-00CF-4F11-BD7A-E5F01483AC0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B6B25ADD-00CF-4F11-BD7A-E5F01483AC0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B6B25ADD-00CF-4F11-BD7A-E5F01483AC0D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{196F1835-EFCB-4EB8-A8E5-FD93199F6A0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{196F1835-EFCB-4EB8-A8E5-FD93199F6A0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{196F1835-EFCB-4EB8-A8E5-FD93199F6A0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{196F1835-EFCB-4EB8-A8E5-FD93199F6A0B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

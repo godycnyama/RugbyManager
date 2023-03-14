@@ -7,16 +7,16 @@ using System.Threading.Tasks;
 
 namespace RugbyManager.Domain.Models
 {
-    public class Team
+    public class StadiumDTO
     {
-        [Key]
-        public int TeamId { get; set; }
         [Required]
         [MaxLength(150)]
-        public string Name { get; set; }
+        public string Name { get; set; } 
         [Required]
-        [MaxLength(200)]
-        public string Description { get; set; }
-        public ICollection<Player> Players { get; set; } = new List<Player>();
+        [MaxLength(150)]
+        public string Location { get; set; } 
+        [Required]
+        public int Capacity { get; set; }
+        public ICollection<Team> Teams { get; set; }
     }
 }

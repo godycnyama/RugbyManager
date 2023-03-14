@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace RugbyManager.Domain.Models
 {
-    public class Player
+    public class PlayerDTO
     {
         [Key]
         public int PlayerId { get; set; }
