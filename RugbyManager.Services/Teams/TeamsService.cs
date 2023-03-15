@@ -17,12 +17,12 @@ namespace RugbyManager.Services.Teams
         }
         public async Task<IEnumerable<Team>> GetAllTeams()
         {
-            return await _rugbyManagerContext.Teams.ToListAsync();
+            return await _rugbyManagerContext.Teams.Include(x => x.Players).ToListAsync();
 
         }
         public async Task<Team> GetTeam(int id)
         {
-            return await _rugbyManagerContext.Teams.FindAsync(id);
+            return await _rugbyManagerContext.Teams.Include(x => x.Players).FirstOrDefaultAsync(x => x.TeamId == id);
         }
         public async Task<MessageDTO> CreateTeam(TeamDTO team)
         {
@@ -40,10 +40,7 @@ namespace RugbyManager.Services.Teams
             {
                 throw new Exception($"Team with id: {id} not found");
             }
-            _team.Name = team.Name;
-            _team.Description = team.Description;
-
-            _rugbyManagerContext.Update(_team);
+            _rugbyManagerContext.Entry(_team).CurrentValues.SetValues(team);
             await _rugbyManagerContext.SaveChangesAsync();
             return new MessageDTO { Message = $"Team with id: {id} updated successfully" };
         }
@@ -62,7 +59,7 @@ namespace RugbyManager.Services.Teams
 
         public async Task<MessageDTO> AddPlayerToTeam(int teamId, int playerId)
         {
-            Team _team = await _rugbyManagerContext.Teams.FindAsync(teamId);
+            Team _team = await _rugbyManagerContext.Teams.Include(x => x.Players).FirstOrDefaultAsync(x => x.TeamId == teamId);
             if (_team == null)
             {
                 throw new Exception($"Team with id: {teamId} not found");
@@ -86,7 +83,7 @@ namespace RugbyManager.Services.Teams
 
         public async Task<MessageDTO> RemovePlayerFromTeam(int teamId, int playerId)
         {
-            Team _team = await _rugbyManagerContext.Teams.FindAsync(teamId);
+            Team _team = await _rugbyManagerContext.Teams.Include(x => x.Players).FirstOrDefaultAsync(x => x.TeamId == teamId);
             if (_team == null)
             {
                 throw new Exception($"Team with id: {teamId} not found");
@@ -104,13 +101,13 @@ namespace RugbyManager.Services.Teams
 
         public async Task<MessageDTO> TransferPlayerBetweenTeams(int teamFromId, int teamToId, int playerId)
         {
-            Team _teamFrom = await _rugbyManagerContext.Teams.FindAsync(teamFromId);
+            Team _teamFrom = await _rugbyManagerContext.Teams.Include(x => x.Players).FirstOrDefaultAsync(x => x.TeamId == teamFromId);
             if (_teamFrom == null)
             {
                 throw new Exception($"Team with id: {teamFromId} not found");
             }
 
-            Team _teamTo = await _rugbyManagerContext.Teams.FindAsync(teamToId);
+            Team _teamTo = await _rugbyManagerContext.Teams.Include(x => x.Players).FirstOrDefaultAsync(x => x.TeamId == teamToId);
             if (_teamTo == null)
             {
                 throw new Exception($"Team with id: {teamToId} not found");

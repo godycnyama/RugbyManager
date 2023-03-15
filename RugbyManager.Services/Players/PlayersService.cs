@@ -43,14 +43,7 @@ namespace RugbyManager.Services.Players
             {
                 throw new Exception($"Player with id: {id} not found");
             }
-            _player.FirstName = player.FirstName;
-            _player.LastName = player.LastName;
-            _player.Age = player.Age;
-            _player.Weight = player.Weight;
-            _player.Height = player.Height;
-            _player.DateOfBirth = player.DateOfBirth;
-
-            _rugbyManagerContext.Update(_player);
+            _rugbyManagerContext.Entry(_player).CurrentValues.SetValues(player);
             await _rugbyManagerContext.SaveChangesAsync();
             return new MessageDTO { Message = $"Player with id: {id} updated successfully" };
         }

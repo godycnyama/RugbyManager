@@ -17,12 +17,12 @@ namespace RugbyManager.Services.Stadiums
         }
         public async Task<IEnumerable<Stadium>> GetAllStadiums()
         {
-            return await _rugbyManagerContext.Stadiums.ToListAsync();
+            return await _rugbyManagerContext.Stadiums.Include(x => x.Teams).ToListAsync();
 
         }
         public async Task<Stadium> GetStadium(int id)
         {
-            return await _rugbyManagerContext.Stadiums.FindAsync(id);
+            return await _rugbyManagerContext.Stadiums.Include(x => x.Teams).FirstOrDefaultAsync(x => x.StadiumId == id);
 
         }
         public async Task<MessageDTO> CreateStadium(StadiumDTO stadium)
@@ -42,11 +42,7 @@ namespace RugbyManager.Services.Stadiums
             {
                 throw new Exception($"Stadium with id: {id} not found");
             }
-            _stadium.Name = stadium.Name;
-            _stadium.Location = stadium.Location;
-            _stadium.Capacity = stadium.Capacity;
-
-            _rugbyManagerContext.Update(_stadium);
+            _rugbyManagerContext.Entry(_stadium).CurrentValues.SetValues(stadium);
             await _rugbyManagerContext.SaveChangesAsync();
             return new MessageDTO { Message = $"Stadium with id: {id} updated successfully" };
         }
@@ -65,7 +61,7 @@ namespace RugbyManager.Services.Stadiums
 
         public async Task<MessageDTO> AddTeamToStadium(int stadiumId, int teamId)
         {
-            Stadium _stadium = await _rugbyManagerContext.Stadiums.FindAsync(stadiumId);
+            Stadium _stadium = await _rugbyManagerContext.Stadiums.Include(x => x.Teams).FirstOrDefaultAsync(x => x.StadiumId == stadiumId);
             if (_stadium == null)
             {
                 throw new Exception($"Stadium with id: {stadiumId} not found");
@@ -89,7 +85,7 @@ namespace RugbyManager.Services.Stadiums
 
         public async Task<MessageDTO> RemoveTeamFromStadium(int stadiumId, int teamId)
         {
-            Stadium _stadium = await _rugbyManagerContext.Stadiums.FindAsync(stadiumId);
+            Stadium _stadium = await _rugbyManagerContext.Stadiums.Include(x => x.Teams).FirstOrDefaultAsync(x => x.StadiumId == stadiumId);
             if (_stadium == null)
             {
                 throw new Exception($"Stadium with id: {stadiumId} not found");
