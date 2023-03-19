@@ -1,12 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Mvc;
 using RugbyManager.Domain.Models;
-using RugbyManager.Persistence;
 using RugbyManager.Services.Players;
 
 namespace RugbyManager.API.PlayersAPI
@@ -23,7 +16,7 @@ namespace RugbyManager.API.PlayersAPI
 
         [HttpGet]
         [Route("api/players/get-all-players")]
-        public async Task<ActionResult<IEnumerable<Player>>> GetAllPlayers()
+        public async Task<IActionResult> GetAllPlayers()
         {
             try
             {
@@ -42,7 +35,7 @@ namespace RugbyManager.API.PlayersAPI
 
         [HttpGet]
         [Route("api/players/get-player/{id}")]
-        public async Task<ActionResult<Player>> GetPlayer(int id)
+        public async Task<IActionResult> GetPlayer(int id)
         {
             try
             {
@@ -76,7 +69,7 @@ namespace RugbyManager.API.PlayersAPI
 
         [HttpPost]
         [Route("api/players/create-player")]
-        public async Task<ActionResult<Player>> CreatePlayer([FromBody] PlayerDTO playerDto)
+        public async Task<IActionResult> CreatePlayer([FromBody] PlayerDTO playerDto)
         {
             try
             {

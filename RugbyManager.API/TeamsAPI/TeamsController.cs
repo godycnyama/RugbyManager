@@ -1,13 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Mvc;
 using RugbyManager.Domain.DTOModels;
 using RugbyManager.Domain.Models;
-using RugbyManager.Persistence;
 using RugbyManager.Services.Teams;
 
 namespace RugbyManager.API.TeamsAPI
@@ -24,7 +17,7 @@ namespace RugbyManager.API.TeamsAPI
 
         [HttpGet]
         [Route("api/teams/get-all-teams")]
-        public async Task<ActionResult<IEnumerable<Team>>> GetAllTeams()
+        public async Task<IActionResult> GetAllTeams()
         {
             try
             {
@@ -44,7 +37,7 @@ namespace RugbyManager.API.TeamsAPI
 
         [HttpGet]
         [Route("api/teams/get-team/{id}")]
-        public async Task<ActionResult<Team>> GetTeam(int id)
+        public async Task<IActionResult> GetTeam(int id)
         {
             try
             {
@@ -79,7 +72,7 @@ namespace RugbyManager.API.TeamsAPI
 
         [HttpPost]
         [Route("api/teams/create-team")]
-        public async Task<ActionResult<Team>> CreateTeam([FromBody] TeamDTO teamDto)
+        public async Task<IActionResult> CreateTeam([FromBody] TeamDTO teamDto)
         {
             try
             {
@@ -109,7 +102,7 @@ namespace RugbyManager.API.TeamsAPI
 
         [HttpPost]
         [Route("api/teams/add-player-to-team")]
-        public async Task<ActionResult> AddPlayerToTeam([FromBody] TeamPlayerDTO teamPlayerDTO)
+        public async Task<IActionResult> AddPlayerToTeam([FromBody] TeamPlayerDTO teamPlayerDTO)
         {
             try
             {
@@ -124,7 +117,7 @@ namespace RugbyManager.API.TeamsAPI
 
         [HttpPost]
         [Route("api/teams/remove-player-from-team")]
-        public async Task<ActionResult> RemovePlayerFromTeam([FromBody] TeamPlayerDTO teamPlayerDTO)
+        public async Task<IActionResult> RemovePlayerFromTeam([FromBody] TeamPlayerDTO teamPlayerDTO)
         {
             try
             {
@@ -139,7 +132,7 @@ namespace RugbyManager.API.TeamsAPI
 
         [HttpPost]
         [Route("api/teams/swap-players-between-teams")]
-        public async Task<ActionResult> SwapPlayersBetweenTeams([FromBody] TeamsPlayersDTO teamsPlayersDTO)
+        public async Task<IActionResult> SwapPlayersBetweenTeams([FromBody] TeamsPlayersDTO teamsPlayersDTO)
         {
             try
             {
@@ -154,7 +147,7 @@ namespace RugbyManager.API.TeamsAPI
 
         [HttpPost]
         [Route("api/teams/transfer-player-between-teams")]
-        public async Task<ActionResult> TransferPlayerBetweenTeams([FromBody] PlayerTransferDTO playerTransferDTO)
+        public async Task<IActionResult> TransferPlayerBetweenTeams([FromBody] PlayerTransferDTO playerTransferDTO)
         {
             try
             {

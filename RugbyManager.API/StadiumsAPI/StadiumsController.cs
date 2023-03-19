@@ -1,13 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-//using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Mvc;
 using RugbyManager.Domain.DTOModels;
 using RugbyManager.Domain.Models;
-using RugbyManager.Persistence;
 using RugbyManager.Services.Stadiums;
 
 namespace RugbyManager.API.StadiumsAPI
@@ -24,7 +17,7 @@ namespace RugbyManager.API.StadiumsAPI
 
         [HttpGet]
         [Route("api/stadiums/get-all-stadiums")]
-        public async Task<ActionResult<IEnumerable<Stadium>>> GetAllStadiums()
+        public async Task<IActionResult> GetAllStadiums()
         {
             try
             {
@@ -44,7 +37,7 @@ namespace RugbyManager.API.StadiumsAPI
 
         [HttpGet]
         [Route("api/stadiums/get-stadium/{id}")]
-        public async Task<ActionResult<Stadium>> GetStadium(int id)
+        public async Task<IActionResult> GetStadium(int id)
         {
             try
             {
@@ -79,7 +72,7 @@ namespace RugbyManager.API.StadiumsAPI
 
         [HttpPost]
         [Route("api/stadiums/create-stadium")]
-        public async Task<ActionResult<Stadium>> CreateStadium([FromBody] StadiumDTO stadiumDto)
+        public async Task<IActionResult> CreateStadium([FromBody] StadiumDTO stadiumDto)
         {
             try
             {
@@ -109,7 +102,7 @@ namespace RugbyManager.API.StadiumsAPI
 
         [HttpPost]
         [Route("api/stadiums/add-team-to-stadium")]
-        public async Task<ActionResult<MessageDTO>> AddTeamToStadium([FromBody] StadiumTeamDTO stadiumTeamDTO)
+        public async Task<IActionResult> AddTeamToStadium([FromBody] StadiumTeamDTO stadiumTeamDTO)
         {
             try
             {
@@ -124,7 +117,7 @@ namespace RugbyManager.API.StadiumsAPI
 
         [HttpPost]
         [Route("api/stadiums/remove-team-from-stadium")]
-        public async Task<ActionResult<MessageDTO>> RemoveTeamFromStadium([FromBody] StadiumTeamDTO stadiumTeamDTO)
+        public async Task<IActionResult> RemoveTeamFromStadium([FromBody] StadiumTeamDTO stadiumTeamDTO)
         {
             try
             {

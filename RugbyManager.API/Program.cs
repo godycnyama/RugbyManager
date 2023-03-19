@@ -1,8 +1,6 @@
-using RugbyManager.Persistence;
-using RugbyManager.Shared.Helpers;
 using RugbyManager.Persistence.Extensions;
-using System.Configuration;
 using RugbyManager.Services.Extensions;
+using RugbyManager.Shared.Helpers;
 
 var builder = WebApplication.CreateBuilder(args);
 ConfigurationHelper.Initialize(builder.Configuration);//read configurations
