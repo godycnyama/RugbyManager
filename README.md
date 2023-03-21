@@ -12,6 +12,6 @@ To run the solution on your local machine,
 4. Make sure SQL Server is installed and running on you local machine.
 5. In Visual Studio in Package Manager Console , choose RugbyManager.API as your default project.
 6. Run migrations to create the RugbyManagerDB.
-7. Choose RugbyManager.API as your default project to run.
+7. Choose RugbyManager.API as your default project to run migrations on.
 8. Run the project in Visual Studio or on the command line.
 9. Access the swagger page of the api on https://localhost:7220/swagger/index.html
