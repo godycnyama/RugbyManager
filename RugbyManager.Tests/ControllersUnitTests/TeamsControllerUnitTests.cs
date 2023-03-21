@@ -28,6 +28,12 @@ namespace RugbyManager.Tests.ControllersUnitTests
             Description = "Rugby team for men"
         };
 
+        TeamPlayerDTO _teamPlayerDTO = new TeamPlayerDTO 
+        { 
+            TeamId = 5, 
+            PlayerId = 8 
+        };
+
         [TestInitialize]
         public void Initialize()
         {
@@ -84,6 +90,40 @@ namespace RugbyManager.Tests.ControllersUnitTests
             Assert.IsInstanceOfType(response, typeof(OkObjectResult));
             Assert.AreEqual(HttpStatusCode.OK, (HttpStatusCode)response.StatusCode);
             Assert.AreEqual("Team deleted successfully", actualResponse.Message);
+        }
+
+        [TestMethod]
+        public async Task ShouldSuccessfullyAddPlayerToTeamReturnsMessageDTO()
+        {
+            MessageDTO messageDTO = new MessageDTO
+            {
+                Message = "Player added to team successfully"
+            };
+            _teamsService.Setup(x => x.AddPlayerToTeam(It.IsAny<int>(), It.IsAny<int>())).Returns(Task.FromResult(messageDTO));
+            var response
+                = await _teamsController.AddPlayerToTeam(_teamPlayerDTO) as ObjectResult;
+            var actualResponse = (MessageDTO)response.Value;
+            _teamsService.Verify(x => x.AddPlayerToTeam(It.IsAny<int>(), It.IsAny<int>()), Times.Once);
+            Assert.IsInstanceOfType(response, typeof(OkObjectResult));
+            Assert.AreEqual(HttpStatusCode.OK, (HttpStatusCode)response.StatusCode);
+            Assert.AreEqual("Player added to team successfully", actualResponse.Message);
+        }
+
+        [TestMethod]
+        public async Task ShouldSuccessfullyRemovePlayerFromTeamReturnsMessageDTO()
+        {
+            MessageDTO messageDTO = new MessageDTO
+            {
+                Message = "Player removed from team successfully"
+            };
+            _teamsService.Setup(x => x.RemovePlayerFromTeam(It.IsAny<int>(), It.IsAny<int>())).Returns(Task.FromResult(messageDTO));
+            var response
+                = await _teamsController.RemovePlayerFromTeam(_teamPlayerDTO) as ObjectResult;
+            var actualResponse = (MessageDTO)response.Value;
+            _teamsService.Verify(x => x.RemovePlayerFromTeam(It.IsAny<int>(), It.IsAny<int>()), Times.Once);
+            Assert.IsInstanceOfType(response, typeof(OkObjectResult));
+            Assert.AreEqual(HttpStatusCode.OK, (HttpStatusCode)response.StatusCode);
+            Assert.AreEqual("Player removed from team successfully", actualResponse.Message);
         }
 
         [TestMethod]

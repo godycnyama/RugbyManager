@@ -30,6 +30,12 @@ namespace RugbyManager.Tests.ControllersUnitTests
             Location = "London"
         };
 
+        private StadiumTeamDTO _stadiumTeamDTO = new StadiumTeamDTO
+        {
+            StadiumId = 45,
+            TeamId = 13
+        };
+
         [TestInitialize]
         public void Initialize()
         {
@@ -86,6 +92,40 @@ namespace RugbyManager.Tests.ControllersUnitTests
             Assert.IsInstanceOfType(response, typeof(OkObjectResult));
             Assert.AreEqual(HttpStatusCode.OK, (HttpStatusCode)response.StatusCode);
             Assert.AreEqual("Stadium deleted successfully", actualResponse.Message);
+        }
+
+        [TestMethod]
+        public async Task ShouldSuccessfullyAddTeamToStadiumReturnsMessageDTO()
+        {
+            MessageDTO messageDTO = new MessageDTO
+            {
+                Message = "Team added to stadium successfully"
+            };
+            _stadiumsService.Setup(x => x.AddTeamToStadium(It.IsAny<int>(), It.IsAny<int>())).Returns(Task.FromResult(messageDTO));
+            var response
+                = await _stadiumsController.AddTeamToStadium(_stadiumTeamDTO) as ObjectResult;
+            var actualResponse = (MessageDTO)response.Value;
+            _stadiumsService.Verify(x => x.AddTeamToStadium(It.IsAny<int>(), It.IsAny<int>()), Times.Once);
+            Assert.IsInstanceOfType(response, typeof(OkObjectResult));
+            Assert.AreEqual(HttpStatusCode.OK, (HttpStatusCode)response.StatusCode);
+            Assert.AreEqual("Team added to stadium successfully", actualResponse.Message);
+        }
+
+        [TestMethod]
+        public async Task ShouldSuccessfullyRemoveTeamFromStadiumReturnsMessageDTO()
+        {
+            MessageDTO messageDTO = new MessageDTO
+            {
+                Message = "Team removed from stadium successfully"
+            };
+            _stadiumsService.Setup(x => x.RemoveTeamFromStadium(It.IsAny<int>(), It.IsAny<int>())).Returns(Task.FromResult(messageDTO));
+            var response
+                = await _stadiumsController.RemoveTeamFromStadium(_stadiumTeamDTO) as ObjectResult;
+            var actualResponse = (MessageDTO)response.Value;
+            _stadiumsService.Verify(x => x.RemoveTeamFromStadium(It.IsAny<int>(), It.IsAny<int>()), Times.Once);
+            Assert.IsInstanceOfType(response, typeof(OkObjectResult));
+            Assert.AreEqual(HttpStatusCode.OK, (HttpStatusCode)response.StatusCode);
+            Assert.AreEqual("Team removed from stadium successfully", actualResponse.Message);
         }
 
         [TestMethod]
