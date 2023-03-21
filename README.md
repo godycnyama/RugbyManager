@@ -13,4 +13,4 @@ To run the solution on your local machine,
 4. Run migrations to create the RugbyManagerDB.
 5. Choose RugbyManager.API as your default project to run.
 6. Run the project in Visual Studio or on the command line.
-7. Access the swagger page of the api on 
+7. Access the swagger page of the api on https://localhost:7220/swagger/index.html
